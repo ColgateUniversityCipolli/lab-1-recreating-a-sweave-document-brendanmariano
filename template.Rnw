@@ -172,25 +172,39 @@ head(VADeaths) # Take a peek of the data
 \indent If we want to print this nicely, we can do so using the xtable package (Dahl et al., 2019), which we can reference using the label (Table 1).
 <<size="scriptsize">>=
 library(xtable)
-colnames(sleep)<-c("Extra Sleep (hrs)","Drug","Patient")
-sleep.table<-xtable(sleep,label = "sleep.tab") # we can now reference sleep.tab
+sleep.table<-xtable(VADeaths, 
+                    label = "VADeaths.tab", caption = "Death Rates per 1000 in Virginia (1940).")
 @
-
-\noindent\textbf{Bibliography:} Note that when you add citations to your bib.bib file \emph{and}
-you cite them in your document, the bibliography section will automatically populate here.
-
-\begin{tiny}
-\bibliography{bib}
-\end{tiny}
+<<results="asis", echo = FALSE>>=
+print( sleep.table,
+table.placement = "H", include.rownames=FALSE, size = "small")
+@
+\section*{References}
 \end{multicols}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Appendix
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
 \onecolumn
 \section{Appendix}
+Below is a table from a paper I’m currently working on. Without the analysis object in R, I have to create this table myself.
 
-If you have anything extra, you can add it here in the appendix. This can include images or tables that don't work well in the two-page setup, code snippets you might want to share, etc.
+\begin{figure}{H}
+  \begin{center}
+    \includegraphics[scale=0.8]{figure/penguins.pdf}
+    \caption{Figure 2: Data on adult foraging penguins near Palmer Station, Antarctica.}
+  \label{penguinsplot}
+  \end{center}
+\end{figure}
+<<penguinsplot, size = "scriptsize">>=
+library(palmerpenguins)
+pdf("figure/penguins.pdf, width = 8, height = 5)
+plot(penguins)
+dev.off()
+@
+
+
+
+
 
 \end{document}
