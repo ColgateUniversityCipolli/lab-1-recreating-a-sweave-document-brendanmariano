@@ -216,7 +216,7 @@ Code chunks can be entered into Sweave; e.g., here are some comments.
 \hldef{result.with.error}
 \end{alltt}
 \begin{verbatim}
-## [1] 40.98448
+## [1] 40.73894
 \end{verbatim}
 \end{kframe}
 \end{knitrout}
@@ -274,7 +274,7 @@ Below, we load and take a peek at some data about the death rates per 1000 in Vi
 \end{kframe}
 \end{knitrout}
 % latex table generated in R 4.4.2 by xtable 1.8-4 package
-% Fri Jan 24 14:34:38 2025
+% Sun Jan 26 13:20:15 2025
 \begin{table}[H]
 \centering
 \begingroup\small
@@ -299,33 +299,26 @@ Rural Male & Rural Female & Urban Male & Urban Female \\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Appendix
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newpage
-\onecolumn
-\section{Appendix}
-Below is a table from a paper I’m currently working on. Without the analysis object in R, I have to create this table myself.
-
-\begin{figure}{H}
-  \begin{center}
-    \includegraphics[scale=0.8]{figure/penguins.pdf}
-    \caption{Figure 2: Data on adult foraging penguins near Palmer Station, Antarctica.}
-  \label{penguinsplot}
-  \end{center}
-\end{figure}
-\begin{knitrout}\scriptsize
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{alltt}
-\hlkwd{library}(palmerpenguins)
-\hlkwd{pdf}("figure/penguins.pdf, width = 8, height = 5)
-\hlkwd{plot}(penguins)
-\hlkwd{dev.off}()
-\end{alltt}
+ \newpage
+ \onecolumn
+% \section{Appendix}
+% Below is a table from a paper I’m currently working on. Without the analysis object in R, I have to create this table myself.
+% 
+% \begin{figure}{H}
+%   \begin{center}
+%     \includegraphics[scale=0.8]{figure/penguins.pdf}
+%     \caption{Figure 2: Data on adult foraging penguins near Palmer Station, Antarctica.}
+%   \label{penguinsplot}
+%   \end{center}
+% \end{figure}
+% <<penguinsplot, size = "scriptsize">>=
+% library(palmerpenguins)
+% pdf("figure/penguins.pdf, width = 8, height = 5)
+% plot(penguins)
+% dev.off()
+% @
 
 
-{\ttfamily\noindent\bfseries\color{errorcolor}{\#\# Error in parse(text = input): <text>:2:5: unexpected INCOMPLETE\_STRING\\\#\# 3: plot(penguins)\\\#\# 4: dev.off()\\\#\# \ \ \ \ \ \ \ \textasciicircum{}}}\end{kframe}
-\end{knitrout}
-
-
-
-
-
+\bibliographystyle{plain}
+\bibliography{~/Documents/GitHub/lab-1-recreating-a-sweave-document-brendanmariano/bib.bib}
 \end{document}

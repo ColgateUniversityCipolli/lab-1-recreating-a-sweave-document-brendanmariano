@@ -184,27 +184,26 @@ table.placement = "H", include.rownames=FALSE, size = "small")
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Appendix
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newpage
-\onecolumn
-\section{Appendix}
-Below is a table from a paper I’m currently working on. Without the analysis object in R, I have to create this table myself.
-
-\begin{figure}{H}
-  \begin{center}
-    \includegraphics[scale=0.8]{figure/penguins.pdf}
-    \caption{Figure 2: Data on adult foraging penguins near Palmer Station, Antarctica.}
-  \label{penguinsplot}
-  \end{center}
-\end{figure}
-<<penguinsplot, size = "scriptsize">>=
-library(palmerpenguins)
-pdf("figure/penguins.pdf, width = 8, height = 5)
-plot(penguins)
-dev.off()
-@
-
-
+ \newpage
+ \onecolumn
+% \section{Appendix}
+% Below is a table from a paper I’m currently working on. Without the analysis object in R, I have to create this table myself.
+% 
+% \begin{figure}{H}
+%   \begin{center}
+%     \includegraphics[scale=0.8]{figure/penguins.pdf}
+%     \caption{Figure 2: Data on adult foraging penguins near Palmer Station, Antarctica.}
+%   \label{penguinsplot}
+%   \end{center}
+% \end{figure}
+% <<penguinsplot, size = "scriptsize">>=
+% library(palmerpenguins)
+% pdf("figure/penguins.pdf, width = 8, height = 5)
+% plot(penguins)
+% dev.off()
+% @
 
 
-
+\bibliographystyle{plain}
+\bibliography{~/Documents/GitHub/lab-1-recreating-a-sweave-document-brendanmariano/bib.bib}
 \end{document}
