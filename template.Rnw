@@ -188,7 +188,14 @@ table.placement = "H", include.rownames=FALSE, size = "small")
  \onecolumn
  \section{Appendix}
 % Below is a table from a paper I’m currently working on. Without the analysis object in R, I have to create this table myself.
-
+\begin{table}[H]
+\begin{center}
+\hline
+\begin{tabular}{c c c c c c}\hline
+\texttt{Term} & \texttt{SS (Type III)} & \texttt{df} & \texttt{F} & \texttt{p-value} & \texttt{epsilon^2_p}} \\
+\end{tabular}
+\end{center}
+\end{table}
 
 
 
