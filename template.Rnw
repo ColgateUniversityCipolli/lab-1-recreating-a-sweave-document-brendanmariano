@@ -164,12 +164,12 @@ hist(rexp(100))
 \end{center}
 \end{figure}
 \subsection{Tables}
-Below, we load and take a peek at some data about the death rates per 1000 in Virginia in 1940 (Molyneaux et al., 1947).
+Below, we load and take a peek at some data about the death rates per 1000 in Virginia in 1940 \citep{deathRates}.
 <<size = "scriptsize">>=
 data(VADeaths)
 head(VADeaths) # Take a peek of the data
 @
-\indent If we want to print this nicely, we can do so using the xtable package (Dahl et al., 2019), which we can reference using the label (Table 1).
+\indent If we want to print this nicely, we can do so using the xtable package \citep{xtable1}, which we can reference using the label (Table 1).
 <<size="scriptsize">>=
 library(xtable)
 sleep.table<-xtable(VADeaths, 
@@ -179,31 +179,36 @@ sleep.table<-xtable(VADeaths,
 print( sleep.table,
 table.placement = "H", include.rownames=FALSE, size = "small")
 @
-\section*{References}
+\bibliography{bib}
 \end{multicols}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Appendix
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  \newpage
  \onecolumn
-% \section{Appendix}
+ \section{Appendix}
 % Below is a table from a paper I’m currently working on. Without the analysis object in R, I have to create this table myself.
-% 
-% \begin{figure}{H}
-%   \begin{center}
-%     \includegraphics[scale=0.8]{figure/penguins.pdf}
-%     \caption{Figure 2: Data on adult foraging penguins near Palmer Station, Antarctica.}
-%   \label{penguinsplot}
-%   \end{center}
-% \end{figure}
-% <<penguinsplot, size = "scriptsize">>=
-% library(palmerpenguins)
-% pdf("figure/penguins.pdf, width = 8, height = 5)
-% plot(penguins)
-% dev.off()
-% @
 
 
-\bibliographystyle{plain}
-\bibliography{~/Documents/GitHub/lab-1-recreating-a-sweave-document-brendanmariano/bib.bib}
+
+
+
+
+
+
+The palmerpenguins package for R \citep{penguins} provides data on adult foraging penguins near Palmer Station, Antarctica. Figure 2 is too big to fit nicely in our column-based-template above, so I’ve placed it here in the abstract by saving it and presenting it scaled to 0.75.
+ <<penguinsplot, size = "scriptsize">>=
+  library(palmerpenguins)
+  pdf("figure/penguins.pdf", width = 8,       height = 5)
+  plot(penguins)
+  dev.off()
+  @
+   \begin{figure}[H]
+    \begin{center}
+       \includegraphics[scale=0.75]{figure/penguins.pdf}
+       \caption{Figure 2: Data on adult foraging penguins near Palmer Station, Antarctica.}
+     \label{penguinsplot}
+     \end{center}
+   \end{figure}
+
 \end{document}
