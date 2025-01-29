@@ -129,7 +129,7 @@ Code chunks can be entered into Sweave; e.g., here are some comments.
 <<size="scriptsize">>=
 8*(9-5) + 9 # 8(x-5) + x for x = 9
 @
-\indent Below, you can see that we can do algebra with R.
+\indent Below, we show we can produced the code without evaluating it.
 <<eval = FALSE, size="scriptsize">>=
 8*(9-5) + 9 # 8(x-5) + x for x = 9
 @
@@ -169,11 +169,12 @@ Below, we load and take a peek at some data about the death rates per 1000 in Vi
 data(VADeaths)
 head(VADeaths) # Take a peek of the data
 @
-\indent If we want to print this nicely, we can do so using the xtable package \citep{xtable1}, which we can reference using the label (Table 1).
+\indent If we want to print this nicely, we can do so using the xtable package \citep{xtable1}, which we can reference using the label (Table \href{VADeaths.tab}{1}).
 <<size="scriptsize">>=
 library(xtable)
 sleep.table<-xtable(VADeaths, 
-                    label = "VADeaths.tab", caption = "Death Rates per 1000 in Virginia (1940).")
+                    label = "VADeaths.tab",
+                    caption = "Death Rates per 1000 in Virginia (1940).")
 @
 <<results="asis", echo = FALSE>>=
 print( sleep.table,
@@ -187,14 +188,26 @@ table.placement = "H", include.rownames=FALSE, size = "small")
  \newpage
  \onecolumn
  \section{Appendix}
-% Below is a table from a paper I’m currently working on. Without the analysis object in R, I have to create this table myself.
+Below is a table from a paper I’m currently working on. Without the analysis object in R, I have to create this table myself.
 \begin{table}[H]
-\begin{center}
-\hline
-\begin{tabular}{c c c c c c}\hline
-\texttt{Term} & \texttt{SS (Type III)} & \texttt{df} & \texttt{F} & \texttt{p-value} & \texttt{epsilon^2_p}} \\
-\end{tabular}
-\end{center}
+  \begin{center}
+    \begin{tabular}{l r r r r r}\hline
+      Term & SS (Type III) & df & F & p-value & $\epsilon^2_p$ \\
+      \hline
+      (Intercept) &4.95 &1.00 & 5.37 &0.0209 \\
+      White-Poor (Z) &3.17 &1.00 & 3.44 &0.0642 & 0.02\\
+      Zero-Sum (Z) &17.96 &1.00 & 19.48 &\verb|<| 0.0001 & 0.03\\
+      Education (Z) &0.39 &1.00 & 0.42 &0.5161 & 0.00\\
+      Income (Z) &0.39 &1.00 & 0.17 &0.6817 & 0.00\\
+      Democrat (Z) &9.60 &1.00 & 10.42 &0.0013 & 0.02\\
+      Black-Poor (Z) &1.92 &1.00 & 2.08 &0.1496 & 0.00\\
+      White-Poor (Z)×Zero-Sum (Z) &7.96 &1.00 & 8.63 &0.0034 & 0.01\\
+      Residuals (Z) &506.92 &550.00\\
+      \hline
+    \end{tabular}
+    \caption{ANOVA table for Case Study I}
+    \label{manualPlot}
+  \end{center}
 \end{table}
 
 
@@ -202,20 +215,19 @@ table.placement = "H", include.rownames=FALSE, size = "small")
 
 
 
+The palmerpenguins package for R \citep{penguins} provides data on adult foraging penguins near Palmer Station, Antarctica. Figure \href{penguinsplot}{2} is too big to fit nicely in our column-based-template above, so I’ve placed it here in the abstract by saving it and presenting it scaled to 0.75.
 
-The palmerpenguins package for R \citep{penguins} provides data on adult foraging penguins near Palmer Station, Antarctica. Figure 2 is too big to fit nicely in our column-based-template above, so I’ve placed it here in the abstract by saving it and presenting it scaled to 0.75.
- <<penguinsplot, size = "scriptsize">>=
+ <<penguinsplot, size = "scriptsize", results = "hide">>=
   library(palmerpenguins)
-  pdf("figure/penguins.pdf", width = 8,       height = 5)
+  pdf("figure/penguins.pdf", width = 8, height = 5)
   plot(penguins)
   dev.off()
   @
    \begin{figure}[H]
     \begin{center}
        \includegraphics[scale=0.75]{figure/penguins.pdf}
-       \caption{Figure 2: Data on adult foraging penguins near Palmer Station, Antarctica.}
+       \caption{Data on adult foraging penguins near Palmer Station, Antarctica.}
      \label{penguinsplot}
      \end{center}
    \end{figure}
-
 \end{document}
