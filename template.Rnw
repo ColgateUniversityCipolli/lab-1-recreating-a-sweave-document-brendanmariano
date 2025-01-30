@@ -143,7 +143,7 @@ result <- 8*(9-5) + 9  # 8*(9-5) + 9 # 8(x-5) + x for x = 9
 result.with.error <- result + rnorm(1, mean = 0, sd = 0.1)
 result.with.error
 @
-\indent The result is 40.920042. Note that I did not type the result, but I used the \verb|\Sexpr{}| command.
+\indent The result is \Sexpr{result.with.error}. Note that I did not type the result, but I used the \verb|\Sexpr{}| command.
 \subsection{Plotting}
 We can also plot with R.
 <<plot1, eval = FALSE, size="scriptsize">>=
@@ -169,7 +169,7 @@ Below, we load and take a peek at some data about the death rates per 1000 in Vi
 data(VADeaths)
 head(VADeaths) # Take a peek of the data
 @
-\indent If we want to print this nicely, we can do so using the xtable package \citep{xtable1}, which we can reference using the label (Table \href{VADeaths.tab}{1}).
+\indent If we want to print this nicely, we can do so using the xtable package \citep{xtable1}, which we can reference using the label (Table \ref{VADeaths.tab}).
 <<size="scriptsize">>=
 library(xtable)
 sleep.table<-xtable(VADeaths, 
@@ -180,7 +180,9 @@ sleep.table<-xtable(VADeaths,
 print( sleep.table,
 table.placement = "H", include.rownames=FALSE, size = "small")
 @
+\begin{tiny}
 \bibliography{bib}
+\end{tiny}
 \end{multicols}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Appendix
@@ -196,7 +198,7 @@ Below is a table from a paper I’m currently working on. Without the analysis o
       \hline
       (Intercept) &4.95 &1.00 & 5.37 &0.0209 \\
       White-Poor (Z) &3.17 &1.00 & 3.44 &0.0642 & 0.02\\
-      Zero-Sum (Z) &17.96 &1.00 & 19.48 &\verb|<| 0.0001 & 0.03\\
+      Zero-Sum (Z) &17.96 &1.00 & 19.48 & $<$ 0.0001 & 0.03\\
       Education (Z) &0.39 &1.00 & 0.42 &0.5161 & 0.00\\
       Income (Z) &0.39 &1.00 & 0.17 &0.6817 & 0.00\\
       Democrat (Z) &9.60 &1.00 & 10.42 &0.0013 & 0.02\\
@@ -215,7 +217,7 @@ Below is a table from a paper I’m currently working on. Without the analysis o
 
 
 
-The palmerpenguins package for R \citep{penguins} provides data on adult foraging penguins near Palmer Station, Antarctica. Figure \href{penguinsplot}{2} is too big to fit nicely in our column-based-template above, so I’ve placed it here in the abstract by saving it and presenting it scaled to 0.75.
+The \texttt{palmerpenguins} package for \texttt{R} \citep{penguins} provides data on adult foraging penguins near Palmer Station, Antarctica. Figure \ref{penguinsplot} is too big to fit nicely in our column-based-template above, so I’ve placed it here in the abstract by saving it and presenting it scaled to 0.75.
 
  <<penguinsplot, size = "scriptsize", results = "hide">>=
   library(palmerpenguins)
